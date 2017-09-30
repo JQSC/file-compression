@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件压缩工具——JQ</title>
+  <link href="./src/lib/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./src/lib/angular-tree-control_v2.0/css/tree-control-attribute.css" rel="stylesheet" />
+  <link href="./src/lib/angular-tree-control_v2.0/css/tree-control.css" rel="stylesheet" />
+  <link href="./src/lib/ngDialog/css/ngDialog.min.css" rel="stylesheet" />
+  <link href="./src/lib/ngDialog/css/ngDialog-theme-default.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/assets/css/style.css">
+  <!-- Insert this line above script imports  -->
+  <script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+  </script>
+  <script src="./src/lib/jquery.js"></script>
+  <script src="./src/lib/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="./src/lib/angular.min.js"></script>
+  <script src="./src/lib/ngDialog/js/ngDialog.min.js"></script>
+  <script src="./src/lib/ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="./src/lib/angular-animate.min.js"></script>
+  <script src="./src/lib/angular-tree-control_v2.0/angular-tree-control.js"></script>
+  <script src="./src/app.js"></script>
+  <script src="./src/public/angular-services.js"></script>
+  <script src="./src/app/merge/mergeController.js"></script>
+  <script src="./src/app/merge/condController.js"></script>
+  <!-- Insert this line after script imports -->
+  <script>
+    if (window.module) module = window.module;
+  </script>
+
+</head>
+
+<body ng-app="app">
+  <div class="container-fluid">
+    <div style="margin:20px">
+      <tabset>
+        <tab index="2">
+          <tab-heading>js多文件合并压缩</tab-heading>
+          <div class="merge" ng-controller="mergeCtrl">
+            <div class="alert alert-info" role="alert">上传的js文件应该是UTF-8编码。</div>
+            <div class="row">
+              <div class="col-md-4">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="example">压缩目录:</label>
+                    <input type="text" class="form-control" id="example" ng-model="jsPath" placeholder="请输入JS文件路径">
+                  </div>
+                  <button type="button" class="btn btn-default" ng-click="createDirectory()">打开目录</button>
+                </form>
+                <form class="form-inline" style="margin-top:10px">
+                  <div class="form-group">
+                    <label for="example2">输出目录:</label>
+                    <input type="text" class="form-control" id="example2" ng-model="distPath" placeholder="请输入压缩文件输出目录">
+                  </div>
+                  <button type="button" class="btn btn-default" ng-click="openDirectory()">打开目录</button>
+                </form>
+                <button type="button" style="margin:20px 0px;" class="btn btn-primary" ng-click="mergeCatalogue()">合并压缩</button>
+              </div>
+              <div class="col-md-8">
+                <div class="catalogue">
+                  <h4>压缩目录:</h4>
+                  <treecontrol style="margin:10px 0px;" class="tree-light" expanded-nodes="expandedNodes" tree-model="treeData" options="treeOptions">
+                    <span ng-bind="node.fileName"><span ng-bind="node.size"></span></span>
+                  </treecontrol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab index="1">
+          <tab-heading>js压缩</tab-heading>
+          <div class="row" style="margin:20px" ng-controller="RealtimeCondCtrl">
+            <div class="col-md-3">
+              <textarea class="condense" ng-model="codeOld" name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="col-md-1 zh">
+              <p class="zh-center">
+                <button type="button" ng-click="minify()" class="btn btn-info catalogue">js压缩</button>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <textarea class="condense" ng-model="codeNew" name="" id="" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</body>
+
+</html>

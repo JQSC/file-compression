@@ -1,0 +1,29 @@
+{
+  "name": "file-compression",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ --win --out . --arch=x64 --version 1.7.5 --overwrite --icon=./src/assets/img/i.ico"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "gulp"
+  ],
+  "author": "csq",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-rev-all": "^0.9.7",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^1.7.6"
+  }
+}

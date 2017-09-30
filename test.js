@@ -1,0 +1,1 @@
+function test(t,e){this.name=t,this.age=e}

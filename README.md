@@ -8,8 +8,11 @@
 >electron、nodejs、gulp、angular1、ui-bootstrap
 
 # 截图
+### 目录压缩
 ![按照目录压缩](https://github.com/JQSC/file-compression/blob/master/src/assets/img/p1.png)
+
+### 单文件实时压缩预览
 ![单文件压缩](https://github.com/JQSC/file-compression/blob/master/src/assets/img/p2.png)
 
-#桌面应用程序
+### 桌面应用程序
 ![桌面程序](https://github.com/JQSC/file-compression/blob/master/src/assets/img/p3.png)

@@ -3,9 +3,13 @@
 
 ### 运行和打包桌面应用
 ```
-//运行
+/*
+   需要全局安装electron、electron-packager，如果安装后者报错，则在npm的配置文件中加入
+   electron_mirror="https://npm.taobao.org/mirrors/electron/"
+*/
+// 运行
 npm start 
-//打包应用,默认只打包成win64下exe执行程序
+// 打包应用,默认只打包成win64下exe执行程序
 npm script package 
 ```
 
